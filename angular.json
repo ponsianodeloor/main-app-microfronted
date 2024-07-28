@@ -91,6 +91,194 @@
           }
         }
       }
+    },
+    "microfrontend1": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/microfrontend1",
+      "sourceRoot": "projects/microfrontend1/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/microfrontend1",
+            "index": "projects/microfrontend1/src/index.html",
+            "browser": "projects/microfrontend1/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/microfrontend1/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/microfrontend1/public"
+              }
+            ],
+            "styles": [
+              "projects/microfrontend1/src/styles.css"
+            ],
+            "scripts": [],
+            "server": "projects/microfrontend1/src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "projects/microfrontend1/server.ts"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "microfrontend1:build:production"
+            },
+            "development": {
+              "buildTarget": "microfrontend1:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/microfrontend1/tsconfig.spec.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/microfrontend1/public"
+              }
+            ],
+            "styles": [
+              "projects/microfrontend1/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "microfrontend2": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/microfrontend2",
+      "sourceRoot": "projects/microfrontend2/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/microfrontend2",
+            "index": "projects/microfrontend2/src/index.html",
+            "browser": "projects/microfrontend2/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/microfrontend2/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/microfrontend2/public"
+              }
+            ],
+            "styles": [
+              "projects/microfrontend2/src/styles.css"
+            ],
+            "scripts": [],
+            "server": "projects/microfrontend2/src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "projects/microfrontend2/server.ts"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "microfrontend2:build:production"
+            },
+            "development": {
+              "buildTarget": "microfrontend2:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/microfrontend2/tsconfig.spec.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/microfrontend2/public"
+              }
+            ],
+            "styles": [
+              "projects/microfrontend2/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   },
   "cli": {
